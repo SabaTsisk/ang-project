@@ -1,0 +1,93 @@
+<div class="about-page">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>TechShop — More<br>than a retailer</h1>
+      <p>Since 2015, we have been fulfilling the small dreams and big plans of millions of people. You can find literally everything here.</p>
+      <a routerLink="/home" class="btn-learn">Learn more →</a>
+    </div>
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&q=80" alt="Team" />
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="stat"><span class="stat-num">14k</span><span class="stat-label">products available for purchase</span></div>
+    <div class="stat"><span class="stat-num">12m</span><span class="stat-label">users visited site from 2015</span></div>
+    <div class="stat"><span class="stat-num">80+</span><span class="stat-label">employees around the world</span></div>
+    <div class="stat"><span class="stat-num">92%</span><span class="stat-label">of our customers return</span></div>
+  </section>
+
+  <!-- MISSION -->
+  <section class="mission">
+    <p class="section-label">Mission</p>
+    <h2>The best products at fair prices</h2>
+    <blockquote>
+      "We believe that things exist to make life easier, more pleasant and kinder. That's why the search for the right thing should be quick, convenient and enjoyable. We do not just sell household appliances and electronics, but comfort and accessibility."
+    </blockquote>
+    <div class="ceo">
+      <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="CEO" class="ceo-avatar" />
+      <span>William Lacker, TechShop CEO</span>
+    </div>
+  </section>
+
+  <!-- PRINCIPLES -->
+  <section class="principles-section">
+    <div class="principles-image">
+      <img src="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?w=600&q=80" alt="Delivery" />
+    </div>
+    <div class="principles-content">
+      <p class="section-label">Principles</p>
+      <h2>The main principles that will allow us to grow</h2>
+      <p class="principles-intro">TechShop is a comprehensive solution to fulfil any customer's needs, serving as both the starting point and end destination of their search.</p>
+      <div class="accordion">
+        @for(p of principles; track $index){
+          <div class="accordion-item" [class.open]="principlesOpen[$index]">
+            <button class="accordion-trigger" (click)="togglePrinciple($index)">
+              <span>{{ p.title }}</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline [attr.points]="principlesOpen[$index] ? '18 15 12 9 6 15' : '6 9 12 15 18 9'"/>
+              </svg>
+            </button>
+            @if(principlesOpen[$index]){
+              <div class="accordion-body">{{ p.text }}</div>
+            }
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-list">
+      @for(f of faqs; track $index){
+        <div class="faq-item" [class.open]="faqOpen[$index]">
+          <button class="faq-trigger" (click)="toggleFaq($index)">
+            <span>{{ f.q }}</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline [attr.points]="faqOpen[$index] ? '18 15 12 9 6 15' : '6 9 12 15 18 9'"/>
+            </svg>
+          </button>
+          @if(faqOpen[$index]){
+            <div class="faq-body">{{ f.a }}</div>
+          }
+        </div>
+      }
+    </div>
+  </section>
+
+  <!-- BRANDS -->
+  <section class="brands-section">
+    <h2>Brands</h2>
+    <div class="brands-grid">
+      @for(brand of brands; track $index){
+        <div class="brand-item">{{ brand }}</div>
+      }
+    </div>
+  </section>
+
+</div>

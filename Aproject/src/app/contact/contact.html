@@ -1,0 +1,41 @@
+<div class="contact-page">
+  <div class="contact-card">
+    <h1>Contact Us</h1>
+    <p class="subtitle">Have a question or need help? Send us a message and we'll get back to you within 24 hours.</p>
+
+    @if(sent){
+      <div class="success-msg">✅ Message sent! We'll be in touch soon.</div>
+    }
+
+    <div class="contact-form">
+      <div class="field">
+        <label>Name</label>
+        <input type="text" [(ngModel)]="name" placeholder="Your name" />
+      </div>
+      <div class="field">
+        <label>Email</label>
+        <input type="email" [(ngModel)]="email" placeholder="your@email.com" />
+      </div>
+      <div class="field">
+        <label>Message</label>
+        <textarea [(ngModel)]="message" placeholder="How can we help?" rows="5"></textarea>
+      </div>
+      <button class="btn-send" (click)="send()" [disabled]="!name || !email || !message">Send Message</button>
+    </div>
+
+    <div class="contact-info">
+      <div class="info-item">
+        <span class="info-icon">📍</span>
+        <div><strong>Address</strong><p>123 Tech Street, Tbilisi, Georgia</p></div>
+      </div>
+      <div class="info-item">
+        <span class="info-icon">📧</span>
+        <div><strong>Email</strong><p>support@techshop.ge</p></div>
+      </div>
+      <div class="info-item">
+        <span class="info-icon">📞</span>
+        <div><strong>Phone</strong><p>+995 32 123 4567</p></div>
+      </div>
+    </div>
+  </div>
+</div>
